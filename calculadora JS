@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora JS</title>
+
+    <script>
+
+        function Escolha(){
+            let escolha = document.getElementById("opcao").value;
+            parseInt(escolha);
+
+            if(escolha == 1){
+              Soma();
+            }
+            
+            if(escolha == 2){
+              Subtracao();
+            }
+
+            if(escolha == 3){
+              Multiplicacao();
+            }
+
+            if(escolha == 4){
+              Divisao();
+            }
+        }
+
+        function Soma(){
+            let var1 = document.getElementById("var1").value;
+            let var2 = document.getElementById("var2").value;
+            let resultado = parseInt(var1) + parseInt(var2);
+
+            document.getElementById("resultado").innerHTML = "Resultado: " + resultado;
+        }
+
+        function Subtracao(){
+            let var1 = document.getElementById("var1").value;
+            let var2 = document.getElementById("var2").value;
+            let resultado = parseInt(var1) - parseInt(var2);
+
+            document.getElementById("resultado").innerHTML = "Resultado: " + resultado;
+        }
+
+        function Multiplicacao(){
+            let var1 = document.getElementById("var1").value;
+            let var2 = document.getElementById("var2").value;
+            let resultado = parseInt(var1) * parseInt(var2);
+
+            document.getElementById("resultado").innerHTML = "Resultado: " + resultado;
+        }
+
+        function Divisao(){
+            let var1 = document.getElementById("var1").value;
+            let var2 = document.getElementById("var2").value;
+            let resultado = parseInt(var1) / parseInt(var2);
+
+            document.getElementById("resultado").innerHTML = "Resultado: " + resultado;
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        Primeiro número: <input type="number" id="var1"><br>
+        Segundo número: <input type="number" id="var2"><br>
+        <select id="opcao">
+            <option value="1">Soma</option>
+            <option value="2">Subtração</option>
+            <option value="3">Multiplicação</option>
+            <option value="4">Divisão</option>
+        </select>
+
+        <input type="button" value="Calcular" onclick="Escolha()">
+
+        <span id="resultado"></span>
+    </div>
+</body>
+</html>
