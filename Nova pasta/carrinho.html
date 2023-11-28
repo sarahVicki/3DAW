@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Carrinho</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        let xmlhttp = new XMLHttpRequest();
+        console.log("1");
+
+        xmlhttp.onreadystatechange = function(){
+
+            if (this.readyState == 4 && this.status == 200){
+
+                console.log("Chegou a resposta OK: " + this.responseText);
+                console.log("2");
+                let objReturnJSON = JSON.parse(this.responseText);
+
+                for (let i = 0; i < objReturnJSON.length; i++) {
+                    let linha = objReturnJSON[i];
+                    CriarLinhaTabelaCarrinho(linha);
+                }
+            } 
+            else if(this.readyState < 4){console.log("3: " + this.readyState);} 
+            else{console.log("Requisicao falhou: " + this.status);}
+        }
+
+        console.log("4");
+        xmlhttp.open("GET", "http://localhost/Nova Pasta/listarCarrinho.php");
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send();
+
+    </script>
+</head>
+<body>
+    <h1>Meu Carrinho</h1>
+    <button class="btn01" onclick='window.location.href = "produto.html"'>Voltar</button>
+
+
+    <section>
+
+        <div class="formulario">
+            <form action="" method="POST" id="form" style="display: none;">
+        
+            ID: <br><input type="text" name="id" id="id"><br><br>
+        
+            Nome: <br><input type="text" name="nome" id="nome"><br><br>
+        
+            Valor: <br><input type="number" name="valor" id="valor"><br><br>
+
+            <div class="btn02">
+                <input type="button" value="Alterar" id="Alterar" style="display: block;" onclick="AlterarCarrinho()">
+                <button onclick="RecolherForm()">Cancelar</button>
+            </div>
+            </form>
+        </div>
+        
+        <div class="tabela">
+            <table id="tab">
+
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>Ações</th>
+            </tr>
+            </table>
+        </div>
+    </section>
+    <script src="produto.js"></script>
+
+
+</body>
+</html>

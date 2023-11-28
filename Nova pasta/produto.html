@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Produtos</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <h1>CRUD Produtos</h1>
+    
+    <div class="botoes">
+        <button class="btn01" onclick="ExibeFormIncluir()">Novo Produto</button>
+        <button class="btn01" onclick="DeletarTabela(), ListarProdutos()">Listar Produtos</button>
+        <button class="btn01" onclick='window.location.href = "carrinho.html"'>Meu Carrinho</button>
+    </div>
+
+    <section>
+
+        <div class="formulario">
+            <form action="" method="POST" id="form" style="display: none;">
+        
+            ID: <br><input type="text" name="id" id="id"><br><br>
+        
+            Nome: <br><input type="text" name="nome" id="nome"><br><br>
+        
+            Valor: <br><input type="number" name="valor" id="valor"><br><br>
+
+            <div class="btn02">
+                <input type="button" value="Alterar" id="Alterar" style="display: none;" onclick="AlterarProduto()">
+                <input type="submit" value="Incluir" id="Incluir" style="display: none;" onclick="inserirProduto();">
+                <button onclick="RecolherForm()">Cancelar</button>
+            </div>
+            </form>
+        </div>
+        
+        <div class="tabela">
+            <table id="tab" style="display: none;">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>Ações</th>
+            </tr>
+            </table>
+        </div>
+    </section>
+    <br>
+    <script src="produto.js"></script>
+</body>
+</html>
