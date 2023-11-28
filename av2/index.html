@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concurso</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+</head>
+<body>
+    <div class="botoes">
+        <button class="btn01" onclick="DeletarTabela(), ListarCandidatos()">Listar Candidatos</button>
+        <button class="btn01" onclick="ExibeFormIncluir()">Incluir Fiscal de Prova</button>
+    </div>
+
+    <section>
+    <div class="formulario">
+        <form action="" method="POST" id="form" style="display: none;">
+    
+        Nome: <br><input type="text" name="nome" id="nome"><br><br>
+    
+        CPF: <br><input type="text" name="cpf" id="cpf"><br><br>
+
+        Sala: <br><input type="number" name="sala" id="sala"><br><br>
+
+        <div class="btn02">
+            <input type="button" value="Alterar" id="Alterar" style="display: none;" onclick="AlterarSala()">
+            <input type="submit" value="Incluir" id="Incluir" style="display: none;" onclick="ValidaForm();">
+            <button>Cancelar</button>
+        </div>
+        </form>
+    </div>
+        
+    <div class="tabela">
+        <table id="tab" style="display: none;">
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Identidade</th>
+            <th>Email</th>
+            <th>Cargo Pretendido</th>
+            <th>Sala de prova</th>
+        </tr>
+        </table>
+    </div>
+    </section>
+</body>
+</html>
